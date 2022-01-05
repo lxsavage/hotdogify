@@ -74,3 +74,8 @@ typings/
 
 # FuseBox cache
 .fusebox/
+
+# Signing certs
+signing/
+
+.DS_Store
