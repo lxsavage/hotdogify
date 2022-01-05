@@ -1,16 +1,19 @@
 "use strict";
+
 (function () {
+  // Prevent multiple instances of this script being on the same page.
   if (window.hasRun) {
     return;
   }
   window.hasRun = true;
-  const DOG_COUNT = 10;
-  console.log("Hot-Dogify v1.0 by Logan Savage");
+
+  // Gets the URL for a random hot dog image
   function getDogUrl() {
-    const currentDog = Math.floor(Math.random() * DOG_COUNT);
+    const currentDog = Math.floor(Math.random() * 10);
     return browser.runtime.getURL(`assets/hotdog${currentDog}.png`);
   }
 
+  // Iterates over every image in the page, then replaces it with a random hot dog.
   function insertDogs() {
     document.body.style += "Comic Sans MS";
     const images = document.getElementsByTagName("img");
@@ -23,6 +26,7 @@
     }
   }
 
+  // Implement an event listener that fires when the button event is emitted from the popup.
   browser.runtime.onMessage.addListener((message) => {
     if (message.command === "hotdogify") {
       insertDogs();
