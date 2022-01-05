@@ -10,10 +10,7 @@
   "content_scripts": [
     {
       "matches": ["*://*/*"],
-      "js": [
-        "node_modules/webextension-polyfill/dist/browser-polyfill.min.js",
-        "content-scripts/hotdogify.js"
-      ]
+      "js": ["browser-polyfill.min.js", "content-scripts/hotdogify.js"]
     }
   ],
   "permissions": ["activeTab", "tabs"],
