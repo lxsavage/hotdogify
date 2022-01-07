@@ -15,7 +15,7 @@
 
   // Iterates over every image in the page, then replaces it with a random hot dog.
   function insertDogs() {
-    document.body.style += "Comic Sans MS";
+    document.body.style.fontFamily += "Comic Sans MS";
     const images = document.getElementsByTagName("img");
     if (images.length > 0) {
       Array.prototype.forEach.call(images, (image) => {
