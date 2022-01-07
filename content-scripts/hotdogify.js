@@ -21,15 +21,20 @@
       Array.prototype.forEach.call(images, (image) => {
         image.setAttribute("src", getDogUrl());
       });
-    } else {
-      console.log("No images detected on page");
     }
   }
 
   // Implement an event listener that fires when the button event is emitted from the popup.
   browser.runtime.onMessage.addListener((message) => {
-    if (message.command === "hotdogify") {
-      insertDogs();
+    switch (message.command) {
+      case "hotdogify":
+        insertDogs();
+        break;
+      case "refresh":
+        window.location.reload();
+        break;
+      default:
+        break;
     }
   });
 })();

@@ -6,11 +6,18 @@
   </head>
   <body>
     <h3 class="--dog-header">Hot-Dogifier v1.0</h3>
-    <button id="--dog-button" type="button">&#x1f32d;</button>
-    <h4 id="--dog-error" style="color: red; display: none">
+    <button
+      id="--dog-button"
+      class="--dog-button-disabled"
+      type="button"
+      disabled
+    >
+      &#x1f32d;
+    </button>
+    <h4 id="--dog-success">Press the button to Hot-Dogify this page!</h4>
+    <h3 id="--dog-error" style="color: red" hidden>
       Unable to Hot-Dogify this page.
     </h4>
-    <h4 id="--dog-success">Press the button to Hot-Dogify this page!</h4>
     <script
       type="text/javascript"
       src="../lib/browser-polyfill.min.js"

@@ -20,21 +20,20 @@ function startListening() {
       .then(hotdogify)
       .catch(reportError);
   });
+  enableButton();
 }
 
-// Disable the button on the page in the event that the page is not modifyable (e.g. chrome:// pages)
-function disableButton() {
+// Enable the button on the page in the event that the injection of the script is successful
+function enableButton() {
   let btn = document.getElementById("--dog-button");
-  btn.disabled = true;
-  btn.addClass("--dog-button-disabled");
-  document.getElementById("--dog-success").display = "none";
-  document.getElementById("--dog-error").display = "block";
+  btn.disabled = false;
+  btn.classList.remove("--dog-button-disabled");
 }
 
 // Display an error message from executing the content script
 function scriptError(error) {
   console.error(`Unable to run script injection: ${error}`);
-  disableButton();
+  document.getElementById("--dog-error").hidden = false;
 }
 
 // Inject the content script, then add the event listener for the Hotdog button.
